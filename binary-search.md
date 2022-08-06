@@ -3,6 +3,7 @@
 + [Binary Search](#binary-search)
 + [Sqrt(x)](#sqrtx)
 + [Guess Number Higher or Lower](#guess-number-higher-or-lower)
++ [Search a 2D Matrix](#search-a-2d-matrix)
 
 ## Binary Search
 
@@ -101,5 +102,58 @@ func guessNumber(n int) int {
     }
     return mid
 }
+
+```
+## Search a 2D Matrix
+
+https://leetcode.com/problems/search-a-2d-matrix/
+
+``` go 
+func searchMatrix(matrix [][]int, target int) bool {
+    
+    BinarSearch := func(arr []int, target int )bool {
+        left,right:=0,len(arr)-1
+        for left <= right {
+            mid:= left + (right-left)/2
+            if arr[mid] == target {
+                return true
+            }
+            if arr[mid] < target {
+                left = mid+1
+            }else if arr[mid] > target{
+                right = mid-1
+            }      
+        }
+        return false
+    }
+    
+
+        
+    startrow :=0
+    
+    endrow := len(matrix)-1
+   
+    endcol := len(matrix[0])-1
+   
+    for startrow <= endrow {
+        midrow := startrow +(endrow-startrow)/2
+   
+       
+        
+        if matrix[midrow][0]<= target && target <= matrix[midrow][endcol]{
+          fmt.Print(matrix[midrow][0],matrix[midrow][endcol]," ")
+            return BinarSearch(matrix[midrow],target)
+        }else if matrix[midrow][0] < target {
+            startrow = midrow +1
+            
+        }else {
+            endrow = midrow -1
+        }
+         
+    }
+ 
+    
+     return false   
+    }
 
 ```
