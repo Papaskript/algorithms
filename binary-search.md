@@ -2,6 +2,7 @@
 
 + [Binary Search](#binary-search)
 + [Sqrt(x)](#sqrtx)
++ [Guess Number Higher or Lower](#guess-number-higher-or-lower)
 
 ## Binary Search
 
@@ -68,6 +69,37 @@ func mySqrt(x int) int {
     }
     
     return low
+}
+
+```
+
+## Guess Number Higher or Lower
+
+https://leetcode.com/problems/guess-number-higher-or-lower/
+
+```go
+func guessNumber(n int) int {
+    low := 1
+    high := n
+    mid := 0
+    res := 0 
+  
+    for low <= high {
+        mid = low + (high - low)/2
+       
+        res = guess(mid)
+        if res == -1 {
+            high = mid -1
+        }else if res == 1 {
+            low = mid +1
+        } else if res == 0 {
+            return mid 
+        }
+            
+        
+        
+    }
+    return mid
 }
 
 ```
