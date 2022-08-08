@@ -2,6 +2,7 @@
 
 + [To Lower Case](#to-lower-case)
 + [Valid Anagram](#valid-anagram)
++ [Valid Palindrome](#valid-palindrome)
 
 ## To Lower Case
 
@@ -64,3 +65,48 @@ https://leetcode.com/problems/valid-anagram/
 
 ```
 
+## Valid Palindrome
+
+https://leetcode.com/problems/valid-palindrome/
+
+```go
+func cToLower(c byte) byte {
+	if c >= 'A' && c <= 'Z' {
+		c += 32
+	}
+	return c
+}
+
+
+func AlphainAm(c byte) bool {
+      return (c >= '0' && c <= '9') ||
+        (c >= 'a' && c <= 'z') ||
+        (c >= 'A' && c <= 'Z')
+}
+
+
+func isPalindrome(s string) bool {
+    if s == ""{
+        return true 
+    }
+    left,right := 0,len(s)-1
+    
+    for left < right {
+        for left < right && !AlphainAm(s[left]){
+            left++
+        }
+        for left < right && !AlphainAm(s[right]){
+            right--
+        }
+        if cToLower(s[left])!= cToLower(s[right]){
+            return false 
+        }
+        left++
+        right-- 
+    }
+
+   
+  return true 
+}
+
+```
