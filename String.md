@@ -4,6 +4,7 @@
 + [Valid Anagram](#valid-anagram)
 + [Valid Palindrome](#valid-palindrome)
 + [Sorting the Sentence](#sorting-the-sentence)
++ [Group Anagrams](#group-anagrams)
 
 ## To Lower Case
 
@@ -130,6 +131,34 @@ func sortSentence(s string) string {
        
     }
     return strings.Join(sorted," ")
+}
+
+```
+
+## Group Anagrams
+
+https://leetcode.com/problems/group-anagrams/
+
+```go
+func groupAnagrams(strs []string) [][]string {
+    result := [][]string{}
+    
+    m := map[string][]string{}
+    
+    for _, str:=range strs {
+        r:=[]rune(str)
+       
+        sort.Slice(r, func(i,j int) bool { return r[i]<r[j] })
+        sorted_str :=string(r)
+        fmt.Print(sorted_str," ")
+        m[sorted_str] = append(m[sorted_str], str)
+    }
+    
+    for _,arr := range m {
+        result = append(result, arr)
+    }
+    
+    return result
 }
 
 ```
