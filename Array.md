@@ -7,6 +7,7 @@
 + [Two Sum II - Input Array Is Sorted](#two-sum-ii-input-array-is-sorted)
 + [Find First Palindromic String in the Array](#find-first-palindromic-string-in-the-array)
 + [Merge Sorted Array](#merge-sorted-array)
++ [Move Zeroes](#move-zeroes)
 
 ## Fizz Buzz
 
@@ -193,6 +194,24 @@ func merge(nums1 []int, m int, nums2 []int, n int)  {
         p --
     }
     
+}
+
+```
+
+## Move Zeroes
+
+https://leetcode.com/problems/move-zeroes/
+
+``` go
+func moveZeroes(nums []int)  {
+    j:= 0
+    for i,_ := range nums {
+        if nums[i]!=0{
+            nums[i],nums[j] = nums[j],nums[i]
+            fmt.Print(nums[i],nums[j])
+            j++
+        }
+    }
 }
 
 ```
