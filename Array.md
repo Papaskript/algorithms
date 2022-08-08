@@ -4,6 +4,7 @@
 + [Max Consecutive Ones](#max-consecutive-ones)
 + [Matrix Diagonal Sum](#matrix-diagonal-sum)
 + [Two Sum](#two-sum)
++ [Two Sum II - Input Array Is Sorted](#two-sum-ii-input-array-is-sorted)
 
 ## Fizz Buzz
 
@@ -100,6 +101,35 @@ func twoSum(nums []int, target int) []int {
         }
     }
     return sum
+}
+
+```
+
+## Two Sum II - Input Array Is Sorted
+
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+```go
+func twoSum(numbers []int, target int) []int {
+    numbersize := len(numbers)
+    res := []int{0,0}
+    if numbersize <= 1 {
+        return res
+    }
+    left,right := 0,numbersize-1
+    for left < right {
+        totalsum := numbers[left] + numbers[right]
+        if totalsum < target {
+            left++
+        }else if totalsum > target{
+            right-- 
+        }else if  totalsum == target {
+            res[0] = left +1
+            res[1] = right +1
+            return res
+        }
+    }
+    return res
 }
 
 ```
