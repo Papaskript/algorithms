@@ -1,6 +1,7 @@
 # Array 
 
 + [Fizz Buzz](#fizz-buzz)
++ [Max Consecutive Ones](#max-consecutive-ones)
 
 # Fizz Buzz
 
@@ -27,6 +28,31 @@ func fizzBuzz(n int) []string {
     
 }
     return arr
+}
+
+```
+
+# Max Consecutive Ones
+
+https://leetcode.com/problems/max-consecutive-ones/
+
+```go
+func findMaxConsecutiveOnes(nums []int) int {
+    var prev int
+    var curr int 
+    for i:=0; i < len(nums);i++ {
+        if nums[i] == 1 {
+            curr++
+           
+            if prev <= curr {
+                prev = curr
+                
+            }
+        }else {
+            curr = 0
+        }
+    }
+    return prev
 }
 
 ```
