@@ -5,6 +5,7 @@
 + [Matrix Diagonal Sum](#matrix-diagonal-sum)
 + [Two Sum](#two-sum)
 + [Two Sum II - Input Array Is Sorted](#two-sum-ii-input-array-is-sorted)
++ [Find First Palindromic String in the Array](#find-first-palindromic-string-in-the-array)
 
 ## Fizz Buzz
 
@@ -128,6 +129,37 @@ func twoSum(numbers []int, target int) []int {
             res[1] = right +1
             return res
         }
+    }
+    return res
+}
+
+```
+
+## Find First Palindromic String in the Array
+
+https://leetcode.com/problems/find-first-palindromic-string-in-the-array/
+
+```go
+func isPalindrom(s string)bool {
+   
+    left,right := 0,len(s)-1
+    for left <= right {
+        if s[left]!=s[right]{
+            return false 
+        }
+        left++
+        right--
+    }
+    return true
+}
+func firstPalindrome(words []string) string {
+    var res string 
+    for _,w := range(words) {
+        if isPalindrom(w) {
+            res = w
+            break
+        }
+   
     }
     return res
 }
