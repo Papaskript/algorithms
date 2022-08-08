@@ -3,6 +3,7 @@
 + [Fizz Buzz](#fizz-buzz)
 + [Max Consecutive Ones](#max-consecutive-ones)
 + [Matrix Diagonal Sum](#matrix-diagonal-sum)
++ [Two Sum](#two-sum)
 
 ## Fizz Buzz
 
@@ -79,6 +80,26 @@ func diagonalSum(mat [][]int) int {
         
     }
     return x+y
+}
+
+```
+
+## Two Sum
+
+https://leetcode.com/problems/two-sum/
+
+```go
+func twoSum(nums []int, target int) []int {
+     var sum []int
+    for i,v:= range nums {
+        for i2,v2 := range nums{
+            if target == v+v2 && i!=i2 {
+                sum = append(sum, i,i2)
+                return sum
+            }
+        }
+    }
+    return sum
 }
 
 ```
