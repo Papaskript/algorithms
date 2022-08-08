@@ -2,6 +2,7 @@
 
 + [Design Linked List](#design-linked-list)
 + [Merge Two Sorted Lists](#merge-two-sorted-lists)
++ [Reverse Linked List](#reverse-linked-list)
 
 ##  Design Linked List
 
@@ -135,7 +136,7 @@ func (this *MyLinkedList) DeleteAtIndex(index int)  {
 
 ```
 
-# Merge Two Sorted Lists
+## Merge Two Sorted Lists
 
 https://leetcode.com/problems/merge-two-sorted-lists/
 
@@ -165,6 +166,29 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
         
     }
     return head.Next
+}
+
+```
+
+## Reverse Linked List
+
+https://leetcode.com/problems/reverse-linked-list/
+
+```go
+func reverseList(head *ListNode) *ListNode {
+    
+    cur := head
+    var prev *ListNode = nil
+    var next *ListNode = nil
+    
+    for cur != nil {
+        next = cur.Next //save next
+        cur.Next = prev //reverse
+        prev = cur  
+        cur = next
+    }
+    return  prev
+    
 }
 
 ```
