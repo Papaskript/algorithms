@@ -6,6 +6,7 @@
 + [Two Sum](#two-sum)
 + [Two Sum II - Input Array Is Sorted](#two-sum-ii-input-array-is-sorted)
 + [Find First Palindromic String in the Array](#find-first-palindromic-string-in-the-array)
++ [Merge Sorted Array](#merge-sorted-array)
 
 ## Fizz Buzz
 
@@ -162,6 +163,36 @@ func firstPalindrome(words []string) string {
    
     }
     return res
+}
+
+```
+
+## Merge Sorted Array
+
+https://leetcode.com/problems/merge-sorted-array/
+
+```go
+func merge(nums1 []int, m int, nums2 []int, n int)  {
+    p := m + n -1 
+    m = m-1 
+    n = n-1
+   
+    
+    for n>=0 {
+        if m>=0 && nums1[m] > nums2[n]{
+          
+        
+            nums1[p] = nums1[m]
+            
+            m--
+        }else {
+            nums1[p]=nums2[n]
+          
+            n--
+        }
+        p --
+    }
+    
 }
 
 ```
