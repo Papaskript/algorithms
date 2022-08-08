@@ -1,10 +1,10 @@
-## Array 
+# Array 
 
 + [Fizz Buzz](#fizz-buzz)
 + [Max Consecutive Ones](#max-consecutive-ones)
 + [Matrix Diagonal Sum](#matrix-diagonal-sum)
 
-# Fizz Buzz
+## Fizz Buzz
 
 https://leetcode.com/problems/fizz-buzz/
 
@@ -33,7 +33,7 @@ func fizzBuzz(n int) []string {
 
 ```
 
-# Max Consecutive Ones
+## Max Consecutive Ones
 
 https://leetcode.com/problems/max-consecutive-ones/
 
@@ -58,7 +58,7 @@ func findMaxConsecutiveOnes(nums []int) int {
 
 ```
 
-# Matrix Diagonal Sum
+## Matrix Diagonal Sum
 
 https://leetcode.com/problems/matrix-diagonal-sum/
 
