@@ -3,6 +3,7 @@
 + [To Lower Case](#to-lower-case)
 + [Valid Anagram](#valid-anagram)
 + [Valid Palindrome](#valid-palindrome)
++ [Sorting the Sentence](#sorting-the-sentence)
 
 ## To Lower Case
 
@@ -107,6 +108,28 @@ func isPalindrome(s string) bool {
 
    
   return true 
+}
+
+```
+
+## Sorting the Sentence
+
+https://leetcode.com/problems/sorting-the-sentence/
+
+```go
+func sortSentence(s string) string {
+    arr := strings.Split(s," ")
+    
+    sorted := make([]string,len(arr))
+    
+    for _,word := range arr {
+        end:= len(word)-1
+        index := int(word[end]-'1')
+        
+        sorted[index] = word[:end] 
+       
+    }
+    return strings.Join(sorted," ")
 }
 
 ```
