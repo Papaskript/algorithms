@@ -5,6 +5,7 @@
 + [Valid Palindrome](#valid-palindrome)
 + [Sorting the Sentence](#sorting-the-sentence)
 + [Group Anagrams](#group-anagrams)
++ [Reverse Vowels of a String](#reverse-vowels-of-a-string)
 
 ## To Lower Case
 
@@ -159,6 +160,50 @@ func groupAnagrams(strs []string) [][]string {
     }
     
     return result
+}
+
+```
+
+## Reverse Vowels of a String
+
+https://leetcode.com/problems/reverse-vowels-of-a-string/
+
+```go
+func isVowel(c byte) bool {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' 
+        
+    }
+
+
+
+func reverseVowels(s string) string {
+ l,r := 0,len(s)-1
+    result := []byte(s)
+    
+for{
+    for l<r {
+    if isVowel(result[l]){
+        break
+    }
+    l++
+}
+
+    for l<r {
+        if isVowel(result[r]){
+            break
+        }
+        r--
+}
+    if l<r {
+        result[l],result[r] = result[r],result[l]
+        l++
+        r--
+    }else {
+        break
+    }
+}
+return string(result)
+
 }
 
 ```
