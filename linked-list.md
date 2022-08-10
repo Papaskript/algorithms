@@ -3,6 +3,8 @@
 + [Design Linked List](#design-linked-list)
 + [Merge Two Sorted Lists](#merge-two-sorted-lists)
 + [Reverse Linked List](#reverse-linked-list)
++ [Middle of the Linked List](#middle-of-the-linked-list)
++ [Middle of the Linked List 2](#middle-of-the-linked-list)
 
 ##  Design Linked List
 
@@ -189,6 +191,46 @@ func reverseList(head *ListNode) *ListNode {
     }
     return  prev
     
+}
+
+```
+
+## Middle of the Linked List
+
+https://leetcode.com/submissions/detail/770404141/
+
+```go
+func middleNode(head *ListNode) *ListNode {
+    slow,fast := head,head
+    
+    for fast != nil && fast.Next != nil {
+        slow = slow.Next
+        fast = fast.Next.Next
+    }
+return slow
+}
+
+```
+## Middle of the Linked List 2 
+
+https://leetcode.com/submissions/detail/770402080/
+
+``` go 
+func middleNode(head *ListNode) *ListNode {
+lengh := 1 
+cur := head
+mid := head
+
+for cur.Next != nil {
+    cur = cur.Next
+    lengh++
+    
+    if lengh %2 == 0{
+        mid = mid.Next
+    }
+}
+    return mid
+
 }
 
 ```
