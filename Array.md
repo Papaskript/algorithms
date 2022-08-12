@@ -8,6 +8,7 @@
 + [Find First Palindromic String in the Array](#find-first-palindromic-string-in-the-array)
 + [Merge Sorted Array](#merge-sorted-array)
 + [Move Zeroes](#move-zeroes)
++ [Merge Intervals](#merge-intervals)
 
 ## Fizz Buzz
 
@@ -212,6 +213,45 @@ func moveZeroes(nums []int)  {
             j++
         }
     }
+}
+
+```
+
+## Merge Intervals
+
+https://leetcode.com/problems/merge-intervals/submissions/
+
+``` go
+func merge(intervals [][]int) [][]int {
+	if len(intervals) == 0 {
+		return [][]int{}
+	}
+
+	var out [][]int
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+
+	start, end := intervals[0][0], intervals[0][1]
+	for _, i := range intervals {
+		if i[0] <= end {
+			end = max(end, i[1])
+        } else {
+			out = append(out, []int{start, end})
+			start, end = i[0], i[1]
+		}
+	}
+	out = append(out, []int{start, end})
+
+	return out
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+
+	return b
 }
 
 ```
