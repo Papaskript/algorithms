@@ -10,6 +10,7 @@
 + [Move Zeroes](#move-zeroes)
 + [Merge Intervals](#merge-intervals)
 + [Maximum Product of Two Elements in an Array](#maximum-product-of-two-elements-in-an-array)
++ [Maximum Product of Two Elements in an Array 2](#maximum-product-of-two-elements-in-an-array)
 
 ## Fizz Buzz
 
@@ -288,3 +289,28 @@ func maxProduct(nums []int) int {
 }
 
 ```
+
+## Maximum Product of Two Elements in an Array 2 
+
+https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/
+
+```go 
+func maxProduct(nums []int) int {
+    max1,max2 := 0,0
+for i:=0;i<len(nums);i++ {
+    if nums[i] > max1 {
+        max2 = max1
+        max1 = nums[i]
+        continue
+        
+    }
+    if nums[i] > max2 {
+        max2 = nums[i]
+    }
+    
+    }
+    return (max1 - 1)*(max2 - 1)
+}
+
+```
+
