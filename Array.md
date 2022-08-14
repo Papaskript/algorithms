@@ -9,6 +9,7 @@
 + [Merge Sorted Array](#merge-sorted-array)
 + [Move Zeroes](#move-zeroes)
 + [Merge Intervals](#merge-intervals)
++ [Maximum Product of Two Elements in an Array](#maximum-product-of-two-elements-in-an-array)
 
 ## Fizz Buzz
 
@@ -252,6 +253,38 @@ func max(a, b int) int {
 	}
 
 	return b
+}
+
+```
+
+##  Maximum Product of Two Elements in an Array
+
+https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/
+
+```go
+func ist(a int) int {
+    var res int = (a - 1)
+    
+ return res
+}
+
+func maxProduct(nums []int) int {
+    var first int
+    var second int
+    var max int
+    var f int
+    var s int
+    sort.Ints(nums)
+    
+    
+    f = len(nums)-1
+    s = len(nums)-2
+
+    first = ist(nums[f])
+    second = ist(nums[s])
+    max = first * second
+    
+ return max   
 }
 
 ```
