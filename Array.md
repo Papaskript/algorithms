@@ -11,6 +11,7 @@
 + [Merge Intervals](#merge-intervals)
 + [Maximum Product of Two Elements in an Array](#maximum-product-of-two-elements-in-an-array)
 + [Maximum Product of Two Elements in an Array 2](#maximum-product-of-two-elements-in-an-array)
++ [Longest Consecutive Sequence](#longest-consecutive-sequence)
 
 ## Fizz Buzz
 
@@ -310,6 +311,40 @@ for i:=0;i<len(nums);i++ {
     
     }
     return (max1 - 1)*(max2 - 1)
+}
+
+```
+
+## Longest Consecutive Sequence
+
+https://leetcode.com/problems/longest-consecutive-sequence/
+
+```go
+func longestConsecutive(nums []int) int {
+    if len(nums)==0{
+        return 0
+    }
+    sort.Ints(nums)
+    longest:=1
+    current:=1
+    prev:= nums[0]
+   for i := 1; i < len(nums); i++ {
+       if nums[i]==prev+1{
+           current++
+       }else if nums[i]!=prev{
+           current =1
+       }
+       prev = nums[i]
+       longest = max(longest,current)
+	}
+    return longest
+}
+
+func max(i int, j int) int {
+    if i > j {
+        return i
+    }
+    return j
 }
 
 ```
