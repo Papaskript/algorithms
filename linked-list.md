@@ -5,6 +5,7 @@
 + [Reverse Linked List](#reverse-linked-list)
 + [Middle of the Linked List](#middle-of-the-linked-list)
 + [Middle of the Linked List 2](#middle-of-the-linked-list)
++ [Remove Nth Node From End of List](#remove-nth-node-from-end-of-list)
 
 ##  Design Linked List
 
@@ -231,6 +232,33 @@ for cur.Next != nil {
 }
     return mid
 
+}
+
+```
+
+## Remove Nth Node From End of List
+
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+```go
+func removeNthFromEnd(head *ListNode, n int) *ListNode {
+    dummy := new(ListNode)
+    dummy.Next = head
+    fast := head
+    slow := dummy
+    
+   for i:=0;i<n;i++ {
+       fast = fast.Next
+       
+   }
+    for fast != nil {
+        fast = fast.Next
+        slow = slow.Next
+      
+    }
+    slow.Next = slow.Next.Next
+ 
+    return dummy.Next   
 }
 
 ```
