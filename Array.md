@@ -12,6 +12,7 @@
 + [Maximum Product of Two Elements in an Array](#maximum-product-of-two-elements-in-an-array)
 + [Maximum Product of Two Elements in an Array 2](#maximum-product-of-two-elements-in-an-array)
 + [Longest Consecutive Sequence](#longest-consecutive-sequence)
++ [Intersection of Two Arrays](#intersection-of-two-arrays)
 
 ## Fizz Buzz
 
@@ -349,3 +350,37 @@ func max(i int, j int) int {
 
 ```
 
+##  Intersection of Two Arrays
+
+https://leetcode.com/problems/intersection-of-two-arrays/
+
+```go
+func intersection(nums1 []int, nums2 []int) []int {
+   var out []int
+   var min int
+   m := make(map[int]int)
+   n := make(map[int]int)
+  
+    
+    for _,v:= range nums1 {
+       m[v] += 1  
+    }
+     for _,v:= range nums2 {
+       n[v] += 1 
+    }
+    
+    
+    for val := range m {
+        min = m[val]
+        if min > n[val]{
+            min = n[val]
+        }
+          if min > 0 {
+        out = append(out,val)
+    }
+        
+    }
+    return out
+}
+
+```
