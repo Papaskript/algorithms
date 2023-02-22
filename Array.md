@@ -13,6 +13,7 @@
 + [Maximum Product of Two Elements in an Array 2](#maximum-product-of-two-elements-in-an-array)
 + [Longest Consecutive Sequence](#longest-consecutive-sequence)
 + [Intersection of Two Arrays](#intersection-of-two-arrays)
++ [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
 
 ## Fizz Buzz
 
@@ -381,6 +382,26 @@ func intersection(nums1 []int, nums2 []int) []int {
         
     }
     return out
+}
+
+```
+
+## Remove Duplicates from Sorted Array
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-array
+
+```go
+func removeDuplicates(nums []int) int {
+   var j int = 1 
+   for i:=0;i<len(nums)-1;i++ {
+       if nums[i]!= nums[i+1]{
+           nums[j]= nums[i+1]
+           j++
+       }
+       
+   }
+    
+    return j
 }
 
 ```
