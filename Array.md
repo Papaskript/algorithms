@@ -405,3 +405,30 @@ func removeDuplicates(nums []int) int {
 }
 
 ```
+
+## Valid Anagram 
+
+https://leetcode.com/problems/valid-anagram/description/
+
+```go 
+func isAnagram(s string, t string) bool {
+
+nums := make([]int,26)
+
+for _,v := range s {
+    i := (v -'a')
+    nums[i]++
+}
+for _,v := range t {
+    i := (v - 'a')
+    nums[i]--
+}
+for _, v := range nums {
+    if v != 0 {
+        return false
+    }
+}
+return true
+}
+
+```
