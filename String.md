@@ -6,7 +6,7 @@
 + [Sorting the Sentence](#sorting-the-sentence)
 + [Group Anagrams](#group-anagrams)
 + [Reverse Vowels of a String](#reverse-vowels-of-a-string)
-+ [Check if Numbers Are Ascending in a Sentence]
++ [Check if Numbers Are Ascending in a Sentence](#Check-if-Numbers-Are-Ascending-in-a-Sentence)
 
 ## To Lower Case
 
@@ -214,7 +214,6 @@ return string(result)
 https://leetcode.com/problems/check-if-numbers-are-ascending-in-a-sentence/description/
 
 ```go
-
 func areNumbersAscending(s string) bool {
     arr := strings.Split(s," ")
     var res []int
