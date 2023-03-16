@@ -6,6 +6,7 @@
 + [Sorting the Sentence](#sorting-the-sentence)
 + [Group Anagrams](#group-anagrams)
 + [Reverse Vowels of a String](#reverse-vowels-of-a-string)
++ [Check if Numbers Are Ascending in a Sentence]
 
 ## To Lower Case
 
@@ -204,6 +205,47 @@ for{
 }
 return string(result)
 
+}
+
+```
+
+## Check if Numbers Are Ascending in a Sentence
+
+https://leetcode.com/problems/check-if-numbers-are-ascending-in-a-sentence/description/
+
+```go
+
+func areNumbersAscending(s string) bool {
+    arr := strings.Split(s," ")
+    var res []int
+    var flag bool
+  
+    //var ints []int
+   for _,v := range arr {
+     if i, err := strconv.Atoi(v); err == nil{
+      res = append(res,i)
+     }else {
+         continue
+     }
+   }
+  
+left := 0
+next := 1 
+right := len(res)-1
+
+for left < right {
+    if res[left]>=res[next] {
+        flag = false
+        break
+
+    }else {
+        flag = true
+    }
+    left++
+    next++
+}
+
+return flag
 }
 
 ```
