@@ -14,6 +14,7 @@
 + [Longest Consecutive Sequence](#longest-consecutive-sequence)
 + [Intersection of Two Arrays](#intersection-of-two-arrays)
 + [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
++ [Interval List Intersections](#Interval-List-Intersections)
 
 ## Fizz Buzz
 
@@ -429,6 +430,52 @@ for _, v := range nums {
     }
 }
 return true
+}
+
+```
+
+## Interval List Intersections
+
+https://leetcode.com/problems/interval-list-intersections/description/
+
+```
+func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
+    res := [][]int{} 
+   
+   i,j:= 0,0
+
+   for i < len(firstList) && j < len(secondList) {
+       p,q := firstList[i],secondList[j]
+       a,b := max(p[0],q[0]),min(p[1],q[1])
+
+       if b >= a {
+        res = append(res,[]int{a,b})
+       }
+       if p[1] > q[1] {
+           j++
+       }else{
+           i++
+       }
+
+   }
+   
+  return res
+     }
+
+
+
+func min(a,b int)int {
+   if a < b {
+       return a 
+   }
+   return b
+}
+
+func max(a,b int)int {
+   if a > b {
+       return a 
+   }
+   return b
 }
 
 ```
