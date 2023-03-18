@@ -1,6 +1,7 @@
 # HashMap
 
 + [Design HashMap](#design-hashmap)
++ [Linked List Cycle](#Linked-List-Cycle)
 
 # Design HashMap
 
@@ -101,6 +102,33 @@ func (this *MyHashMap) Remove(key int)  {
         prev = item        
         item = item.next
     }
+}
+
+```
+
+# Linked List Cycle
+
+https://leetcode.com/problems/linked-list-cycle/description/
+
+``` go
+
+ 
+ type ListNode struct {
+     Val int
+     Next *ListNode
+ 
+func hasCycle(head *ListNode) bool {
+  slow := head
+  fast := head 
+
+  for fast != nil && fast.Next != nil{
+      slow = slow.Next
+      fast = fast.Next.Next
+      if slow == fast {
+          return true
+      }
+  }
+  return false
 }
 
 ```
