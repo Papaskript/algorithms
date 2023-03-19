@@ -2,6 +2,7 @@
 
 + [Design HashMap](#design-hashmap)
 + [Linked List Cycle](#Linked-List-Cycle)
++ [Intersection of Two Linked Lists](#Intersection-of-Two-Linked-Lists)
 
 # Design HashMap
 
@@ -130,5 +131,36 @@ func hasCycle(head *ListNode) bool {
   }
   return false
 }
+
+```
+
+# Intersection of Two Linked Lists
+
+```go
+
+ type ListNode struct {
+     Val int
+     Next *ListNode
+ 
+ 
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+     a := headA
+     b := headB
+      
+      for a != b {
+          if a != nil {
+              a = a.Next
+          }else {
+              a = headB
+          }
+          if b != nil {
+              b = b.Next
+          }else {
+              b = headA
+          }
+      }
+      return a
+}
+  
 
 ```
