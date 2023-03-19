@@ -15,6 +15,7 @@
 + [Intersection of Two Arrays](#intersection-of-two-arrays)
 + [Remove Duplicates from Sorted Array](#remove-duplicates-from-sorted-array)
 + [Interval List Intersections](#Interval-List-Intersections)
++ [Remove Element](#Remove-Element)
 
 ## Fizz Buzz
 
@@ -479,3 +480,21 @@ func max(a,b int)int {
 }
 
 ```
+
+## Remove Element
+
+```
+func removeElement(nums []int, val int) int {
+    var j = 0
+   
+   for _,v := range nums {
+       if v != val {
+           nums[j]= v
+           j++
+       }
+       
+   }
+   return j
+}
+
+```go
