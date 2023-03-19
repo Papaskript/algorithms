@@ -3,6 +3,7 @@
 + [Design HashMap](#design-hashmap)
 + [Linked List Cycle](#Linked-List-Cycle)
 + [Intersection of Two Linked Lists](#Intersection-of-Two-Linked-Lists)
++ [Remove Linked List Elements](#Remove-Linked-List-Elements)
 
 # Design HashMap
 
@@ -162,5 +163,35 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
       return a
 }
   
+
+```
+# Remove Linked List Elements
+
+```go
+
+ type ListNode struct {
+    Val int
+    Next *ListNode
+ 
+ 
+func removeElements(head *ListNode, val int) *ListNode {
+var rear = head                                           // указатель на узел следующего узла 
+var prev = new(ListNode)                                  // фиктивный узел 
+var cur = prev                                            // указатель на фиктивный узел
+
+prev.Next = head                                         // связываем фиктивный узел с head 
+
+  for rear != nil {                                      // идем в цикле пока rear != 0
+     if rear.Val == val { // если rear.Val == val 
+         cur.Next = cur.Next.Next                        // удаляем узел передвигаем указатель предыдущего узла через узел который требудеться удалить 
+         rear = cur.Next                                 // задний узел передвигаем на следующий узел от текущего узла cur 
+     }else {
+         cur = rear                                      // иначе итерируемся дальше 
+         rear = rear.Next 
+     }
+  
+}
+return prev.Next                                        // возарвщаем новую узел фиктивно узла 
+}
 
 ```
